@@ -23,7 +23,7 @@
 
             try {
                 Class.forName("com.mysql.jdbc.Driver").newInstance();
-                con = DriverManager.getConnection("jdbc:mysql://localhost/cine", "root", "n0m3l0");
+                con = DriverManager.getConnection("jdbc:mysql://localhost/login", "root", "n0m3l0");
                 sta = con.createStatement();
             } catch (SQLException error) {
                 out.print(error.toString());
@@ -49,7 +49,7 @@
                 } else if (msj.equals("true")) {
                     HttpSession sesion = request.getSession();
                     sesion.setAttribute("idUsuario", usu);
-                    
+                    out.println("<script>alert('Login correcto.');</script>");
                     out.println("<input type='text' name='idd' id='idd' value='"+usu+"'>");
                     out.println("</form>");
                     
